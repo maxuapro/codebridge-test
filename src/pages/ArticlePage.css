@@ -1,0 +1,26 @@
+.backimage {
+  width: 100%;
+  height: 150px;
+  /* border: 3px solid red; */
+}
+
+.backimage>img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -10;
+}
+
+.contentbox {
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1100px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  /*  */
+  position: relative;
+  top: -60px;
+}
