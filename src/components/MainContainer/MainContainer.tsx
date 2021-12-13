@@ -6,7 +6,7 @@ const contStyle = {
   margin: '0 auto',
   padding: "15px",
   minHeight: '200px',
-  border: '1px solid black'
+  boxShadow: "0px 0px 7px 0px #6F6F6F",
 }
 
 const MainContainer: FC = ({ children }) => {

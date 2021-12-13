@@ -14,6 +14,8 @@ import './ArticleCard.css'
 
 import { IArticleData } from '../../Interfaces';
 
+const Highlight = require('react-highlighter')
+
 const goodDate = (str: any) => {
   const d = new Date(str);
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
@@ -38,6 +40,7 @@ const makeDescription = (str: any): string => {
 }
 
 const ArticleCard = ({
+  regstr,
   id,
   title,
   imageUrl,
@@ -45,7 +48,6 @@ const ArticleCard = ({
   publishedAt
 }: IArticleData) => {
   return (
-    // sx={{maxWidth: 345}}
     <Card elevation={5} className="cardBlock">
 
       <CardActionArea className='cardActionArea'>
@@ -66,15 +68,20 @@ const ArticleCard = ({
 
 
             <Typography variant="h5">
-              {title}
+              <Highlight search={regstr ? regstr : ''}>
+                {title}
+              </Highlight>
             </Typography>
 
             <Typography variant="body2" color="text.secondary">
-              {makeDescription(summary)}
+              <Highlight search={regstr ? regstr : ''}>
+                {makeDescription(summary)}
+              </Highlight>
             </Typography>
 
 
           </CardContent>
+
         </Link>
       </CardActionArea>
 
