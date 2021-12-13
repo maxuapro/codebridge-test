@@ -9,14 +9,7 @@ import { Link } from '@mui/material';
 
 const SearchForm = ({ setreg }: any) => {
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '60%' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
+    <Box>
 
       <Typography variant="overline" display="block">
         Filter by keywords  <Link href="https://github.com/maxuapro/codebridge-test" target="_blank">GITHUB CODE</Link>
