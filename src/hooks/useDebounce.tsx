@@ -1,12 +1,6 @@
 import { useEffect } from "react"
 import useTimeout from "./useTimeout"
 
-// interface IhookUseDebounce {
-//   callback: () => void;
-//   delay: number;
-//   dependencies: any[]
-// }
-
 export default function useDebounce(
   callback: () => void,
   delay: number,
