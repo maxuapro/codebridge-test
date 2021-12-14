@@ -1,13 +1,18 @@
-// import {FC} from 'react'
+import { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, Typography } from '@mui/material';
 import { Link } from '@mui/material';
 
+import useDebounce from '../../hooks/useDebounce';
+
 
 
 const SearchForm = ({ setreg }: any) => {
+
+  const [search, setSearch] = useState<string>()
+  useDebounce(() => setreg(search), 1000, [search])
   return (
     <Box>
 
@@ -17,7 +22,7 @@ const SearchForm = ({ setreg }: any) => {
 
       <TextField
         onChange={(event) => {
-          setreg(event.target.value)
+          setSearch(event.target.value)
         }}
         sx={{ boxShadow: "0px 0px 7px 0px #6F6F6F" }}
         id="input-with-icon-textfield"

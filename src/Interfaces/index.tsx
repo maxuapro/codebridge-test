@@ -7,7 +7,7 @@
  * @publishedAt string
  */
 export interface IArticleData {
-  regstr?: string | null; 
+  regstr?: any; 
   id?: number;
   title: string;
   imageUrl?: string;
