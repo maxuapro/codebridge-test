@@ -49,8 +49,6 @@ const HomePage = () => {
   const [data, setData] = useState<IArticleData[]>()
   const [fiteredData, setFiteredData] = useState<IArticleData[]>()
   const [reg, setReg] = useState<string>()
-  const [isTyping, setIsTyping] = useState<boolean>(false)
-  const [str, setStr] = useState<string>()
 
   useEffect(() => {
     const getData = async () => {
@@ -72,35 +70,9 @@ const HomePage = () => {
     setFiteredData(sorted)
   }, [data, reg])
 
-  // TIMER 2 sec
-  useEffect(() => {
-    console.log("Is typing:", isTyping)
-    if (!isTyping) {
-      return
-    }
-    const timer = setTimeout(() => {
-      setReg(str)
-      console.log('timer is of')
-      setIsTyping(false)
-    }, 2000)
-    return () => clearTimeout(timer)
-  }, [isTyping, str])
-
-  /**
-   * Fires up timer and sets up RegExp
-   * @param val string
-   */
-  const searchString = (val: string) => {
-    console.log(val)
-    setStr(val)
-  }
-
   return (
     <MainContainer>
-      <SearchForm setreg={(val: string) => {
-        setIsTyping(true)
-        searchString(val)
-      }} />
+      <SearchForm setreg={setReg} />
       <ArticleContainer>
         <Typography variant='subtitle1' sx={{ borderBottom: "1px solid grey", marginBottom: '20px' }}>
           Results: {fiteredData && fiteredData.length}
